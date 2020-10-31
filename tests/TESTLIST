@@ -834,5 +834,5 @@ unsupported-link-type-dbus unsupported-link-type-dbus.pcap unsupported-link-type
 lsp-ping-timestamp	lsp-ping-timestamp.pcap		lsp-ping-timestamp.out	-vv
 
 # optimizer tests
-optimize-pullup		optimize-pullup.pcap		optimize-pullup.out 'host 192.168.1.1 and not ((host 1.2.3.4 or host 5.6.7.8) and icmp) and not (host 5.6.7.8 or host 192.168.1.1)'
-optimize-deadstore	optimize-deadstore.pcap		optimize-deadstore.out '((ip[(((ip[0]&0xf)<<2) + ((ip[((ip[0]&0xf)<<2)+1] & 0x80) >> 5) + 12)+4 +9]=17) and (ip[(((((ip[0]&0xf)<<2) + ((ip[((ip[0]&0xf)<<2)+1] & 0x80) >> 5) + 12)+4 +((ip[(((ip[0]&0xf)<<2) + ((ip[((ip[0]&0xf)<<2)+1] & 0x80) >> 5) + 12)+4]&0xf)<<2))+20):4]=0x7fffffff))'
+optimize-pullup		optimize-pullup.pcap		optimize-pullup.out -F tests/optimize-pullup.expr
+optimize-deadstore	optimize-deadstore.pcap		optimize-deadstore.out -F tests/optimize-deadstore.expr
